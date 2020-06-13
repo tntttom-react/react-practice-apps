@@ -14,6 +14,14 @@ function App() {
     });
   }
 
+  function removeNote(id) {
+    setNotes((prevNotes) => {
+      return prevNotes.filter((item, index) => {
+        return index !== id;
+      });
+    });
+  }
+
   return (
     <>
       <Header />
@@ -25,6 +33,7 @@ function App() {
           id={index}
           title={note.title}
           content={note.content}
+          onChecked={removeNote}
         />
       ))}
 
